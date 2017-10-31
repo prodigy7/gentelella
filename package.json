@@ -85,8 +85,10 @@
     "pdfmake": "^0.1.33",
     "pnotify": "^3.2.1",
     "raphael": "^2.2.7",
+    "requirejs": "^2.3.5",
     "select2": "^4.0.6-rc.0",
     "skycons": "^1.0.0",
+    "skycons-component": "^1.1.2",
     "switchery": "0.0.2",
     "validator": "^9.1.1"
   }
