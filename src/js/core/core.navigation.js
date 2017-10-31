@@ -1,7 +1,11 @@
 var currentURL = window.location.href.split('#')[0].split('?')[0];
 
+$(document).ajaxComplete(function() {
+  setContentHeight();
+});
+
 // Sidebar
-$(document).ready(function() {
+//$(document).ready(function() {
     // TODO: This is some kind of easy fix, maybe we can improve this
     var setContentHeight = function () {
 
@@ -17,6 +21,8 @@ $(document).ready(function() {
         contentHeight -= $.navMenu.height() + footerHeight;
 
         $.rightCol.css('min-height', contentHeight);
+
+        return(true);
     };
 
     $.sidebarMenu.find('a').on('click', function(ev) {
@@ -83,5 +89,5 @@ $(document).ready(function() {
             mouseWheel:{ preventDefault: true }
         });
     }
-});
+//});
 // /Sidebar

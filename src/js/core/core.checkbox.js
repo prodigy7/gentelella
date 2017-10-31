@@ -3,9 +3,9 @@ $(document).ajaxComplete(function() {
   initCheckbox();
 });
 
-$(document).ready(function() {
+/*$(document).ready(function() {
   initCheckbox();
-});
+});*/
 
 function initCheckbox() {
   if(jQuery().iCheck) {

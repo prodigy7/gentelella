@@ -1,23 +1,26 @@
           <script>
+
+            loadStyle("../build/css/custom.min.css");
+
             var requireJS = [];
 
             <!-- Custom Theme Scripts -->
-            loadJS(requireJS, "../node_modules/bootstrap-progressbar/bootstrap-progressbar.min.js");
-            loadJS(requireJS, "../node_modules/icheck/icheck.min.js");
-            loadJS(requireJS, "../node_modules/moment/min/moment.min.js");
-            loadJS(requireJS, "../node_modules/bootstrap-daterangepicker/daterangepicker.js");
-            loadJS(requireJS, "../node_modules/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js");
-            loadJS(requireJS, "../node_modules/jquery-hotkeys/jquery-hotkeys.js");
-            loadJS(requireJS, "../node_modules/google-code-prettify/src/prettify.js");
-            loadJS(requireJS, "../node_modules/jquery.tagsinput/src/jquery.tagsinput.js"); // XXX
-            loadJS(requireJS, "../node_modules/switchery/switchery.js");
-            loadJS(requireJS, "../node_modules/select2/dist/js/select2.full.min.js");
-            loadJS(requireJS, "../node_modules/parsleyjs/dist/parsley.min.js");
-            loadJS(requireJS, "../node_modules/autosize/dist/autosize.min.js");
-            loadJS(requireJS, "../node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js");
-            loadJS(requireJS, "../node_modules/starrr/dist/starrr.js"); // XXX
+            requireJS.push("../node_modules/bootstrap-progressbar/bootstrap-progressbar.min.js");
+            requireJS.push("../node_modules/icheck/icheck.min.js");
+            requireJS.push("../node_modules/moment/min/moment.min.js");
+            requireJS.push("../node_modules/bootstrap-daterangepicker/daterangepicker.js");
+            requireJS.push("../node_modules/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js");
+            requireJS.push("../node_modules/jquery-hotkeys/jquery-hotkeys.js");
+            requireJS.push("../node_modules/google-code-prettify/src/prettify.js");
+            requireJS.push("../vendors/jquery.tagsinput/src/jquery.tagsinput.js"); // XXX
+            //requireJS.push("../vendors/switchery/dist/switchery.min.js");
+            requireJS.push("../node_modules/select2/dist/js/select2.full.min.js");
+            requireJS.push("../node_modules/parsleyjs/dist/parsley.min.js");
+            requireJS.push("../node_modules/autosize/dist/autosize.min.js");
+            requireJS.push("../node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js");
+            requireJS.push("../vendors/starrr/dist/starrr.js"); 
 
-            loadJS(requireJS, "../build/js/custom.min.js");
+            requireJS.push("../build/js/custom.min.js");
           </script>
 
           <div class="">

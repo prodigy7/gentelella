@@ -52,9 +52,9 @@ $(document).ajaxComplete(function() {
   initCheckbox();
 });
 
-$(document).ready(function() {
+/*$(document).ready(function() {
   initCheckbox();
-});
+});*/
 
 function initCheckbox() {
   if(jQuery().iCheck) {
@@ -94,9 +94,9 @@ $.body = $('body');
 $.menuToggle = $('#menuToggle');
 $.sidebarMenu = $('#sidebar-menu');
 $.sidebarFooter = $('.sidebar-footer');
-$.leftCol = $('.leftCol');
-$.rightCol = $('.rightCol');
-$.navMenu = $('.navMenu');
+$.leftCol = $('.left_col');
+$.rightCol = $('.right_col');
+$.navMenu = $('.nav_menu');
 $.footer = $('footer');
 
 'use strict';
@@ -104,7 +104,7 @@ $.footer = $('footer');
 /* ================================================================================
    Function for load JS files asynchronously in ajax mode
    -------------------------------------------------------------------------------- */
-function loadJS(jsFiles, pageScript) {
+function loadJS(jsFiles) {
 
   var i;
   for(i = 0; i<jsFiles.length;i++) {
@@ -116,17 +116,6 @@ function loadJS(jsFiles, pageScript) {
     script.src = jsFiles[i];
     body.appendChild(script);
   }
-
-  if (pageScript) {
-    var body = document.getElementsByTagName('body')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = false;
-    script.src = pageScript;
-    body.appendChild(script);
-  }
-
-  //init();
 }
 
 /* ================================================================================
@@ -162,7 +151,6 @@ function loadStyle(cssFile, end, callback) {
 
       styleLink.onload = callback;
       head.insertBefore(styleLink, style);
-
     }
 
   } else if (callback) {
@@ -250,7 +238,11 @@ function loadPage(url) {
       $('html, body').animate({ scrollTop: 0 }, 0);
       $.mainContent.load($.pagesDirectory + url, null, function (responseText) {
         window.location.hash = url;
+        $(window).ready(function() {
+          loadJS(requireJS);
+        });
       }).delay(250).animate({ opacity : 1 }, 0);
+
     },
     error : function() {
       window.location.href = $.page404;
@@ -261,8 +253,12 @@ function loadPage(url) {
 
 var currentURL = window.location.href.split('#')[0].split('?')[0];
 
+$(document).ajaxComplete(function() {
+  setContentHeight();
+});
+
 // Sidebar
-$(document).ready(function() {
+//$(document).ready(function() {
     // TODO: This is some kind of easy fix, maybe we can improve this
     var setContentHeight = function () {
 
@@ -278,6 +274,8 @@ $(document).ready(function() {
         contentHeight -= $.navMenu.height() + footerHeight;
 
         $.rightCol.css('min-height', contentHeight);
+
+        return(true);
     };
 
     $.sidebarMenu.find('a').on('click', function(ev) {
@@ -344,7 +342,7 @@ $(document).ready(function() {
             mouseWheel:{ preventDefault: true }
         });
     }
-});
+//});
 // /Sidebar
 
 // Panel toolbox
@@ -408,25 +406,34 @@ $(document).ready(function() {
 });
 
 function initProgressbar() {
-  if(jQuery().progressbar) {
+//  if(jQuery().progressbar) {
     if ($(".progress .progress-bar")[0]) {
       $('.progress .progress-bar').progressbar();
     }
-  }
+//  }
 }
 
 // Switchery
+$(document).ajaxComplete(function() {
+  initSwitchery();
+});
+
 $(document).ready(function() {
+  initSwitchery();
+});
+
+function initSwitchery() {
+//  if(jQuery().switchery) {
     if ($(".js-switch")[0]) {
-        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+/*        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
         elems.forEach(function (html) {
             var switchery = new Switchery(html, {
                 color: '#26B99A'
             });
-        });
+        });*/
     }
-});
-// /Switchery
+//  }
+}
 
 // Table
 $('table input').on('ifChecked', function () {

@@ -8,9 +8,9 @@ $(document).ready(function() {
 });
 
 function initProgressbar() {
-  if(jQuery().progressbar) {
+//  if(jQuery().progressbar) {
     if ($(".progress .progress-bar")[0]) {
       $('.progress .progress-bar').progressbar();
     }
-  }
+//  }
 }

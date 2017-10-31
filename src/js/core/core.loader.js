@@ -3,7 +3,7 @@
 /* ================================================================================
    Function for load JS files asynchronously in ajax mode
    -------------------------------------------------------------------------------- */
-function loadJS(jsFiles, pageScript) {
+function loadJS(jsFiles) {
 
   var i;
   for(i = 0; i<jsFiles.length;i++) {
@@ -15,17 +15,6 @@ function loadJS(jsFiles, pageScript) {
     script.src = jsFiles[i];
     body.appendChild(script);
   }
-
-  if (pageScript) {
-    var body = document.getElementsByTagName('body')[0];
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = false;
-    script.src = pageScript;
-    body.appendChild(script);
-  }
-
-  //init();
 }
 
 /* ================================================================================
@@ -61,7 +50,6 @@ function loadStyle(cssFile, end, callback) {
 
       styleLink.onload = callback;
       head.insertBefore(styleLink, style);
-
     }
 
   } else if (callback) {
@@ -149,7 +137,11 @@ function loadPage(url) {
       $('html, body').animate({ scrollTop: 0 }, 0);
       $.mainContent.load($.pagesDirectory + url, null, function (responseText) {
         window.location.hash = url;
+        $(window).ready(function() {
+          loadJS(requireJS);
+        });
       }).delay(250).animate({ opacity : 1 }, 0);
+
     },
     error : function() {
       window.location.href = $.page404;

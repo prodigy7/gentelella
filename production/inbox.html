@@ -1,12 +1,15 @@
           <script>
+
+            loadStyle("../build/css/custom.min.css");
+
             var requireJS = [];
 
             <!-- Custom Theme Scripts -->
-            loadJS(requireJS, "../node_modules/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js");
-            loadJS(requireJS, "../node_modules/jquery-hotkeys/jquery-hotkeys.js");
-            loadJS(requireJS, "../node_modules/google-code-prettify/src/prettify.js");
+            requireJS.push("../node_modules/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js");
+            requireJS.push("../node_modules/jquery-hotkeys/jquery-hotkeys.js");
+            requireJS.push("../node_modules/google-code-prettify/src/prettify.js");
 
-            loadJS(requireJS, "../build/js/custom.min.js");
+            requireJS.push("../build/js/custom.min.js");
           </script>
 
           <div class="">
