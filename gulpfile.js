@@ -8,10 +8,22 @@ var gulp = require('gulp'),
 
 var DEST = 'build/';
 
-gulp.task('scripts', function() {
+gulp.task('scripts-core', function() {
     return gulp.src([
-        'src/js/helpers/*.js',
-        'src/js/*.js',
+        'src/js/core/*.js',
+      ])
+      .pipe(concat('core.js'))
+      .pipe(gulp.dest(DEST+'/js'))
+      .pipe(rename({suffix: '.min'}))
+      .pipe(uglify())
+      .pipe(gulp.dest(DEST+'/js'))
+      .pipe(browserSync.stream());
+});
+
+gulp.task('scripts-custom', function() {
+    return gulp.src([
+        'src/js/custom/helpers/*.js',
+        'src/js/custom/*.js',
       ])
       .pipe(concat('custom.js'))
       .pipe(gulp.dest(DEST+'/js'))
@@ -51,7 +63,7 @@ gulp.task('watch', function() {
   // Watch .html files
   gulp.watch('production/*.html', browserSync.reload);
   // Watch .js files
-  gulp.watch('src/js/*.js', ['scripts']);
+  gulp.watch('src/js/**/*.js', ['scripts-core', 'scripts-custom']);
   // Watch .scss files
   gulp.watch('src/scss/*.scss', ['sass', 'sass-minify']);
 });
