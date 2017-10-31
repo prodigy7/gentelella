@@ -22,6 +22,20 @@ gulp.task('scripts-core', function() {
       .pipe(browserSync.stream());
 });
 
+gulp.task('scripts-site', function() {
+    return gulp.src([
+        'src/js/site/config/*.js',
+        'src/js/site/helpers/*.js',
+        'src/js/site/*.js',
+      ])
+      .pipe(concat('site.js'))
+      .pipe(gulp.dest(DEST+'/js'))
+      .pipe(rename({suffix: '.min'}))
+      .pipe(uglify())
+      .pipe(gulp.dest(DEST+'/js'))
+      .pipe(browserSync.stream());
+});
+
 gulp.task('scripts-custom', function() {
     return gulp.src([
         'src/js/custom/helpers/*.js',
@@ -65,7 +79,7 @@ gulp.task('watch', function() {
   // Watch .html files
   gulp.watch('production/*.html', browserSync.reload);
   // Watch .js files
-  gulp.watch('src/js/**/*.js', ['scripts-core', 'scripts-custom']);
+  gulp.watch('src/js/**/*.js', ['scripts-core', 'scripts-site', 'scripts-custom']);
   // Watch .scss files
   gulp.watch('src/scss/*.scss', ['sass', 'sass-minify']);
 });

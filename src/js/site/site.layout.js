@@ -16,3 +16,9 @@ var setContentHeight = function () {
 
 	return(true);
 };
+
+
+// recompute content when resizing
+$(window).smartresize(function(){
+	setContentHeight();
+});
