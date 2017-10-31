@@ -10,6 +10,7 @@ var DEST = 'build/';
 
 gulp.task('scripts-core', function() {
     return gulp.src([
+        'src/js/core/config/*.js',
         'src/js/core/helpers/*.js',
         'src/js/core/*.js',
       ])

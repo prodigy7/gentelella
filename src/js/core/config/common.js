@@ -20,7 +20,7 @@ $.mainContent = $('#main');
    Static configuration
    -------------------------------------------------------------------------------- */
 $.body = $('body');
-$.menuToggle = $('#menuToggle');
+$.menuToggle = $('#menu_toggle');
 $.sidebarMenu = $('#sidebar-menu');
 $.sidebarFooter = $('.sidebar-footer');
 $.leftCol = $('.left_col');
