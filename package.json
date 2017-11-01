@@ -40,6 +40,7 @@
     "gulp-uglify": "^1.5.3"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "autosize": "^4.0.0",
     "bootstrap": "^3.3.7",
     "bootstrap-colorpicker": "^2.5.2",
@@ -83,6 +84,7 @@
     "jquery-sparkline": "^2.4.0",
     "jqvmap": "^1.5.1",
     "jszip": "^3.1.4",
+    "less2sass": "^1.0.3",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
     "moment": "^2.19.1",
     "morris.js": "^0.5.0",
@@ -93,6 +95,7 @@
     "pnotify": "^3.2.1",
     "raphael": "^2.2.7",
     "requirejs": "^2.3.5",
+    "sass": "^1.0.0-beta.2",
     "select2": "^4.0.6-rc.0",
     "skycons": "^1.0.0",
     "skycons-component": "^1.1.2",

@@ -2794,9 +2794,9 @@ function init_morris_charts() {
             resize: true
         });
 
-        $menuToggle.on('click', function() {
+        /*$menuToggle.on('click', function() {
             $(window).resize();
-        });
+        });*/
     }
 };
 

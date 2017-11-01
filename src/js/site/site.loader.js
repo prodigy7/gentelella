@@ -20,42 +20,57 @@ if ($.ajaxLoad) {
         setUpPage($.defaultPage);
     }
 
-    $(document).on('click', '.nav a[href!="#"]', function(e) {
-        if ($(this).parent().parent().hasClass('nav-tabs') || $(this).parent().parent().hasClass('nav-pills')) {
-            e.preventDefault();
-        } else if ($(this).attr('target') == '_top') {
-            e.preventDefault();
-            var target = $(e.currentTarget);
-            window.location = (target.attr('href'));
-        } else if ($(this).attr('target') == '_blank') {
-            e.preventDefault();
-            var target = $(e.currentTarget);
-            window.open(target.attr('href'));
-        } else {
-            e.preventDefault();
-            var target = $(e.currentTarget);
-            setUpPage(target.attr('href'));
-        }
-    });
+    $(document).on('click', 'a', function(ev) {
+        var link = $(this).attr('href');
+        var linkTarget = $(this).attr('target') !== undefined ? $(this).attr('target') : '';
 
-    $(document).on('click', 'a[href="#"]', function(e) {
-        e.preventDefault();
+        if (setUpPage(link, linkTarget, ev)) {
+            ev.preventDefault();
+        }
     });
 }
 
 /* ================================================================================
    Init given url
    -------------------------------------------------------------------------------- */
-function setUpPage(url) {
+function setUpPage(page, pageTarget) {
 
-    /*  $('nav .nav li .nav-link').removeClass('active');
-      $('nav .nav li.nav-dropdown').removeClass('open');
-      $('nav .nav li:has(a[href="' + url.split('?')[0] + '"])').addClass('open');
-      $('nav .nav a[href="' + url.split('?')[0] + '"]').addClass('active');*/
+    page = page !== undefined ? page : '';
+    pageTarget = pageTarget !== undefined ? pageTarget : '';
 
-    if (url !== undefined) {
-        loadPage(url);
+    switch (pageTarget) {
+        case '_top':
+            window.location = page;
+            return (true)
+            break;
+
+        case '_blank':
+            window.open(page);
+            return (true)
+            break;
+
+        default:
+            switch (page) {
+                case '':
+                case '#':
+                    return (false)
+                    break;
+
+                default:
+                    if (page.match(/javascript\:/gi)) {
+                        window.location = page;
+                    } else if (page.match(/\:\/\//gi)) {
+                        window.location = page;
+                        return (false)
+                    } else {
+                        loadPage(page);
+                    }
+                    return (true)
+                    break;
+            }
+            break;
     }
+    return (false)
 }
 
 /* ================================================================================
@@ -81,6 +96,7 @@ function loadPage(url) {
                 loadJS(requireJS);
                 $(window).ready(function() {
                     NProgress.done();
+                    sidebar.setActive();
                 });
             }).delay(0).animate({ opacity: 1 }, 0);
 

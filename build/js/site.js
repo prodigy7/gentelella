@@ -27,7 +27,6 @@ $.leftCol = $('.left_col');
 $.rightCol = $('.right_col');
 $.navMenu = $('.nav_menu');
 $.footer = $('footer');
-
 /**
  * Resize function without multiple trigger
  * 
@@ -146,42 +145,57 @@ if ($.ajaxLoad) {
         setUpPage($.defaultPage);
     }
 
-    $(document).on('click', '.nav a[href!="#"]', function(e) {
-        if ($(this).parent().parent().hasClass('nav-tabs') || $(this).parent().parent().hasClass('nav-pills')) {
-            e.preventDefault();
-        } else if ($(this).attr('target') == '_top') {
-            e.preventDefault();
-            var target = $(e.currentTarget);
-            window.location = (target.attr('href'));
-        } else if ($(this).attr('target') == '_blank') {
-            e.preventDefault();
-            var target = $(e.currentTarget);
-            window.open(target.attr('href'));
-        } else {
-            e.preventDefault();
-            var target = $(e.currentTarget);
-            setUpPage(target.attr('href'));
-        }
-    });
+    $(document).on('click', 'a', function(ev) {
+        var link = $(this).attr('href');
+        var linkTarget = $(this).attr('target') !== undefined ? $(this).attr('target') : '';
 
-    $(document).on('click', 'a[href="#"]', function(e) {
-        e.preventDefault();
+        if (setUpPage(link, linkTarget, ev)) {
+            ev.preventDefault();
+        }
     });
 }
 
 /* ================================================================================
    Init given url
    -------------------------------------------------------------------------------- */
-function setUpPage(url) {
+function setUpPage(page, pageTarget) {
 
-    /*  $('nav .nav li .nav-link').removeClass('active');
-      $('nav .nav li.nav-dropdown').removeClass('open');
-      $('nav .nav li:has(a[href="' + url.split('?')[0] + '"])').addClass('open');
-      $('nav .nav a[href="' + url.split('?')[0] + '"]').addClass('active');*/
+    page = page !== undefined ? page : '';
+    pageTarget = pageTarget !== undefined ? pageTarget : '';
 
-    if (url !== undefined) {
-        loadPage(url);
+    switch (pageTarget) {
+        case '_top':
+            window.location = page;
+            return (true)
+            break;
+
+        case '_blank':
+            window.open(page);
+            return (true)
+            break;
+
+        default:
+            switch (page) {
+                case '':
+                case '#':
+                    return (false)
+                    break;
+
+                default:
+                    if (page.match(/javascript\:/gi)) {
+                        window.location = page;
+                    } else if (page.match(/\:\/\//gi)) {
+                        window.location = page;
+                        return (false)
+                    } else {
+                        loadPage(page);
+                    }
+                    return (true)
+                    break;
+            }
+            break;
     }
+    return (false)
 }
 
 /* ================================================================================
@@ -207,6 +221,7 @@ function loadPage(url) {
                 loadJS(requireJS);
                 $(window).ready(function() {
                     NProgress.done();
+                    sidebar.setActive();
                 });
             }).delay(0).animate({ opacity: 1 }, 0);
 
@@ -295,6 +310,43 @@ $('body').popover({
 	}
 });
 
+var presentation = new presentationClass();
+
+// Init sidebar
+$(document).ready(function() {
+    $.getJSON('js/presentation.json', {})
+        .done(function(data) {
+            presentation.build(data);
+        });
+});
+
+function presentationClass() {
+    this.build = function(data) {
+        $.each(data, function(section, items) {
+            var presentationEntry = $('<li></li>')
+
+            var presentationAnchor = $('<a href="' + items.link + '"></a>')
+            presentationAnchor.append($('<span class="image"><img src="' + items.image + '" alt="Image" /></span>'))
+            presentationAnchor.append($('<span>' + items.name + '</span>'))
+            presentationAnchor.append($('<span class="time">' + items.timestamp + '</span>'))
+            presentationAnchor.append($('<span class="message">' + items.message + '</span>'))
+            presentationEntry.append(presentationAnchor);
+
+            $('li[role="presentation"] ul[role="menu"]').append(presentationEntry);
+        });
+
+        $('li[role="presentation"] ul[role="menu"]').append($('<li><div class="text-center"><a><strong>See All Alerts</strong> <i class="fa fa-angle-right"></i></a></div></li>'));
+        /*$('li[role="presentation"] ul[role="menu"]').find('a[href!="#"]').on('click', function(ev) {
+            var link = $(this).attr('href');
+            var linkTarget = $(this).attr('target') !== undefined ? $(this).attr('target') : '';
+            if (setUpPage(link, linkTarget, ev)) {
+                ev.preventDefault();
+            }
+        });*/
+
+    };
+
+}
 // NProgress
 if (typeof NProgress != 'undefined') {
     $(document).ready(function() {
@@ -336,8 +388,6 @@ function initProgressbar() {
     }
 }
 //
-var currentURL = window.location.href.split('#')[0].split('?')[0];
-
 var sidebar = new sidebarClass();
 
 // Init sidebar
@@ -346,6 +396,7 @@ $(document).ready(function() {
         .done(function(data) {
             sidebar.build(data);
             sidebar.init();
+            sidebar.setActive();
         });
 });
 
@@ -378,7 +429,7 @@ function sidebarClass() {
         }
 
         if (data.target !== undefined) {
-            if (data.target == '') {
+            if (data.target != '') {
                 menuEntryAnchor.attr('target', data.target);
             }
         }
@@ -436,25 +487,31 @@ function sidebarClass() {
             }
         });
     }
+
+    this.setActive = function() {
+
+        var currentUrl = window.location.href.split('#')[1];
+
+        $.sidebarMenu.find('a').removeClass('active').parent('li').removeClass('active').removeClass('current-page');
+        $.sidebarMenu.find('a[href="' + currentUrl + '"]')
+            .parent('li')
+            .addClass('current-page')
+            .addClass('active')
+            .parent('ul')
+            .css('display', 'block');
+
+        $.sidebarMenu.find('a').filter(function() {
+            return this.href == currentUrl;
+        }).parent('li').addClass('current-page').parents('ul').slideDown(function() {
+            setContentHeight();
+        }).parent().addClass('active');
+    }
 }
 
 
 $(document).ajaxComplete(function() {
     setContentHeight();
 });
-
-// Sidebar
-//$(document).ready(function() {
-
-
-// check active menu
-$.sidebarMenu.find('a[href="' + currentURL + '"]').parent('li').addClass('current-page');
-
-$.sidebarMenu.find('a').filter(function() {
-    return this.href == currentURL;
-}).parent('li').addClass('current-page').parents('ul').slideDown(function() {
-    setContentHeight();
-}).parent().addClass('active');
 
 // fixed sidebar
 if ($.fn.mCustomScrollbar) {

@@ -10,11 +10,16 @@
 
     <title>Gentelella Alela! | </title>
 
-    <!-- NProgress -->
-    <link href="../node_modules/nprogress/nprogress.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 
-    <!-- iCheck -->
-    <link href="../node_modules/icheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <link href="../build/css/core.min.css" rel="stylesheet">
+    <script src="../build/js/core.min.js"></script>
 
 </head>
 
@@ -24,7 +29,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index1.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                        <a href="index.html" target="_top" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -59,7 +64,7 @@
                         <a data-toggle="tooltip" data-placement="top" title="Lock">
                             <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html" target="_top">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         </a>
                     </div>
@@ -76,86 +81,30 @@
                         </div>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <li role="xmenu">
+                                <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <img src="images/img.jpg" alt="">John Doe
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <li><a href="#"> Profile</a></li>
                                     <li>
-                                        <a href="javascript:;">
+                                        <a href="#">
                                             <span class="badge bg-red pull-right">50%</span>
                                             <span>Settings</span>
                                         </a>
                                     </li>
-                                    <li><a href="javascript:;">Help</a></li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="login.html" target="_top"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                                 </ul>
                             </li>
 
                             <li role="presentation" class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="badge bg-green">6</span>
                                 </a>
                                 <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                          <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                          <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                          <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                          <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="text-center">
-                                            <a>
-                                                <strong>See All Alerts</strong>
-                                                <i class="fa fa-angle-right"></i>
-                                            </a>
-                                        </div>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -180,51 +129,40 @@
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- FastClick -->
-    <script src="../node_modules/fastclick/lib/fastclick.js"></script>
-
-    <!-- NProgress -->
-    <script src="../node_modules/nprogress/nprogress.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/core.js"></script>
-
     <script>
-        loadStyle("../node_modules/font-awesome/css/font-awesome.min.css");
-        loadStyle("../node_modules/bootstrap/dist/css/bootstrap.min.css");
-        loadStyle("../node_modules/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css");
-        loadStyle("../node_modules/bootstrap-daterangepicker/daterangepicker.css");
-        loadStyle("../node_modules/jqvmap/dist/jqvmap.min.css");
-        loadStyle("../node_modules/datatables.net-bs/css/dataTables.bootstrap.css");
-        loadStyle("../node_modules/datatables.net-buttons-bs/css/buttons.bootstrap.min.css");
-        loadStyle("../node_modules/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css");
-        loadStyle("../node_modules/datatables.net-responsive-bs/css/responsive.bootstrap.min.css");
-        loadStyle("../node_modules/datatables.net-scroller-bs/css/scroller.bootstrap.min.css");
-        loadStyle("../node_modules/pnotify/dist/pnotify.css");
-        loadStyle("../node_modules/pnotify/dist/pnotify.buttons.css");
-        loadStyle("../node_modules/pnotify/dist/pnotify.nonblock.css");
-        loadStyle("../node_modules/normalize-css/normalize.css"); // XXX
-        loadStyle("../node_modules/ion-rangeslider/css/ion.rangeSlider.css");
-        loadStyle("../node_modules/ion-rangeslider/css/ion.rangeSlider.skinFlat.css");
-        loadStyle("../node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css");
-        loadStyle("../node_modules/cropper/dist/cropper.min.css");
-        loadStyle("../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css");
-        loadStyle("../node_modules/fullcalendar/dist/fullcalendar.css");
-        loadStyle("../node_modules/fullcalendar/dist/fullcalendar.print.css", "print");
-        loadStyle("../node_modules/dropzone/dist/min/dropzone.min.css");
-        loadStyle("../node_modules/google-code-prettify/bin/prettify.min.css");
-        loadStyle("../node_modules/select2/dist/css/select2.min.css");
-        loadStyle("../node_modules/switchery/standalone/switchery.css");
-        loadStyle("../node_modules/starrr/dist/starrr.css");
-        loadStyle("../build/css/custom.css");
+        var requireCSS = [];
+        requireCSS.push("../node_modules/nprogress/nprogress.css");
+        requireCSS.push("../node_modules/icheck/skins/flat/green.css");
+        requireCSS.push("../node_modules/font-awesome/css/font-awesome.min.css");
+        requireCSS.push("../node_modules/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css");
+        requireCSS.push("../node_modules/bootstrap-daterangepicker/daterangepicker.css");
+        requireCSS.push("../node_modules/jqvmap/dist/jqvmap.min.css");
+        requireCSS.push("../node_modules/datatables.net-bs/css/dataTables.bootstrap.css");
+        requireCSS.push("../node_modules/datatables.net-buttons-bs/css/buttons.bootstrap.min.css");
+        requireCSS.push("../node_modules/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css");
+        requireCSS.push("../node_modules/datatables.net-responsive-bs/css/responsive.bootstrap.min.css");
+        requireCSS.push("../node_modules/datatables.net-scroller-bs/css/scroller.bootstrap.min.css");
+        requireCSS.push("../node_modules/pnotify/dist/pnotify.css");
+        requireCSS.push("../node_modules/pnotify/dist/pnotify.buttons.css");
+        requireCSS.push("../node_modules/pnotify/dist/pnotify.nonblock.css");
+        requireCSS.push("../node_modules/normalize-css/normalize.css"); // XXX
+        requireCSS.push("../node_modules/ion-rangeslider/css/ion.rangeSlider.css");
+        requireCSS.push("../node_modules/ion-rangeslider/css/ion.rangeSlider.skinFlat.css");
+        requireCSS.push("../node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css");
+        requireCSS.push("../node_modules/cropper/dist/cropper.min.css");
+        requireCSS.push("../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css");
+        requireCSS.push("../node_modules/fullcalendar/dist/fullcalendar.css");
+        //requireCSS.push("../node_modules/fullcalendar/dist/fullcalendar.print.css", "print");
+        requireCSS.push("../node_modules/dropzone/dist/min/dropzone.min.css");
+        requireCSS.push("../node_modules/google-code-prettify/bin/prettify.min.css");
+        requireCSS.push("../node_modules/select2/dist/css/select2.min.css");
+        requireCSS.push("../node_modules/switchery/standalone/switchery.css");
+        requireCSS.push("../node_modules/starrr/dist/starrr.css");
+        requireCSS.push("../build/css/custom.min.css");
 
         var requireJS = [];
+        requireJS.push("../node_modules/fastclick/lib/fastclick.js");
+        requireJS.push("../node_modules/nprogress/nprogress.js");
         requireJS.push("../node_modules/moment/min/moment.min.js");
         requireJS.push("../node_modules/bootstrap-progressbar/bootstrap-progressbar.min.js");
         requireJS.push("../node_modules/bootstrap-daterangepicker/daterangepicker.js");
@@ -288,9 +226,9 @@
         requireJS.push("../node_modules/dropzone/dist/min/dropzone.min.js");
         requireJS.push("../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js");
         requireJS.push("../node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js");
-
         requireJS.push("../build/js/site.js");
 
+        loadCSS(requireCSS);
         loadJS(requireJS);
     </script>
 </body>

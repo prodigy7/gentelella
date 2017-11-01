@@ -20,6 +20,30 @@ function loadJS(jsFiles) {
 /* ================================================================================
    Function for load CSS files asynchronously in ajax mode
    -------------------------------------------------------------------------------- */
+function loadCSS(cssFiles) {
+
+    var i;
+    for (i = 0; i < cssFiles.length; i++) {
+
+        var head = document.getElementsByTagName('head')[0];
+        var style = document.getElementById('main-style');
+
+        var styleLink = document.createElement('link');
+        styleLink.setAttribute('rel', 'stylesheet');
+        styleLink.setAttribute('type', 'text/css');
+        styleLink.setAttribute('href', cssFiles[i]);
+        /*
+        if (media != '') {
+            styleLink.setAttribute('media', media);
+        }
+
+        styleLink.onload = callback;
+        */
+        head.insertBefore(styleLink, style);
+
+    }
+}
+
 function loadStyle(cssFile, end, callback, media) {
 
     var media = media !== undefined ? media : '';

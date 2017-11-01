@@ -1,5 +1,3 @@
-var currentURL = window.location.href.split('#')[0].split('?')[0];
-
 var sidebar = new sidebarClass();
 
 // Init sidebar
@@ -8,6 +6,7 @@ $(document).ready(function() {
         .done(function(data) {
             sidebar.build(data);
             sidebar.init();
+            sidebar.setActive();
         });
 });
 
@@ -40,7 +39,7 @@ function sidebarClass() {
         }
 
         if (data.target !== undefined) {
-            if (data.target == '') {
+            if (data.target != '') {
                 menuEntryAnchor.attr('target', data.target);
             }
         }
@@ -98,25 +97,31 @@ function sidebarClass() {
             }
         });
     }
+
+    this.setActive = function() {
+
+        var currentUrl = window.location.href.split('#')[1];
+
+        $.sidebarMenu.find('a').removeClass('active').parent('li').removeClass('active').removeClass('current-page');
+        $.sidebarMenu.find('a[href="' + currentUrl + '"]')
+            .parent('li')
+            .addClass('current-page')
+            .addClass('active')
+            .parent('ul')
+            .css('display', 'block');
+
+        $.sidebarMenu.find('a').filter(function() {
+            return this.href == currentUrl;
+        }).parent('li').addClass('current-page').parents('ul').slideDown(function() {
+            setContentHeight();
+        }).parent().addClass('active');
+    }
 }
 
 
 $(document).ajaxComplete(function() {
     setContentHeight();
 });
-
-// Sidebar
-//$(document).ready(function() {
-
-
-// check active menu
-$.sidebarMenu.find('a[href="' + currentURL + '"]').parent('li').addClass('current-page');
-
-$.sidebarMenu.find('a').filter(function() {
-    return this.href == currentURL;
-}).parent('li').addClass('current-page').parents('ul').slideDown(function() {
-    setContentHeight();
-}).parent().addClass('active');
 
 // fixed sidebar
 if ($.fn.mCustomScrollbar) {

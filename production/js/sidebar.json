@@ -1,228 +1,228 @@
 {
-        "General": [{
-                "name": "Home",
-                "icon": "fa-home",
-                "childs": [{
-                        "name": "Dashboard",
-                        "page": "index1.html",
-                        "target": ""
-                }, {
-                        "name": "Dashboard2",
-                        "page": "index2.html",
-                        "target": ""
-                }, {
-                        "name": "Dashboard3",
-                        "page": "index3.html",
-                        "target": ""
-                }]
+    "General": [{
+        "name": "Home",
+        "icon": "fa-home",
+        "childs": [{
+            "name": "Dashboard",
+            "page": "index1.html",
+            "target": ""
         }, {
-                "name": "Forms",
-                "icon": "fa-edit",
-                "childs": [{
-                        "name": "General Form",
-                        "page": "form.html",
-                        "target": ""
-                }, {
-                        "name": "Advanced Components",
-                        "page": "form_advanced.html",
-                        "target": ""
-                }, {
-                        "name": "Form Validation",
-                        "page": "form_validation.html",
-                        "target": ""
-                }, {
-                        "name": "Form Wizard",
-                        "page": "form_wizards.html",
-                        "target": ""
-                }, {
-                        "name": "Form Upload",
-                        "page": "form_upload.html",
-                        "target": ""
-                }, {
-                        "name": "Form Buttons",
-                        "page": "form_buttons.html",
-                        "target": ""
-                }]
+            "name": "Dashboard2",
+            "page": "index2.html",
+            "target": ""
         }, {
-                "name": "UI Elements",
-                "icon": "fa-desktop",
-                "childs": [{
-                        "name": "General Elements",
-                        "page": "general_elements.html",
-                        "target": ""
-                }, {
-                        "name": "Media Gallery",
-                        "page": "media_gallery.html",
-                        "target": ""
-                }, {
-                        "name": "Typography",
-                        "page": "typography.html",
-                        "target": ""
-                }, {
-                        "name": "Icons",
-                        "page": "icons.html",
-                        "target": ""
-                }, {
-                        "name": "Glyphicons",
-                        "page": "glyphicons.html",
-                        "target": ""
-                }, {
-                        "name": "Widgets",
-                        "page": "widgets.html",
-                        "target": ""
-                }, {
-                        "name": "Invoice",
-                        "page": "invoice.html",
-                        "target": ""
-                }, {
-                        "name": "Inbox",
-                        "page": "inbox.html",
-                        "target": ""
-                }, {
-                        "name": "Calendar",
-                        "page": "calendar.html",
-                        "target": ""
-                }]
-        }, {
-                "name": "Tables",
-                "icon": "fa-table",
-                "childs": [{
-                        "name": "Tables",
-                        "page": "tables.html",
-                        "target": ""
-                }, {
-                        "name": "Table Dynamic",
-                        "page": "tables_dynamic.html",
-                        "target": ""
-                }]
-        }, {
-                "name": "Data Presentation",
-                "icon": "fa-bar-chart-o",
-                "childs": [{
-                        "name": "Chart JS",
-                        "page": "chartjs.html",
-                        "target": ""
-                }, {
-                        "name": "Chart JS2",
-                        "page": "chartjs2.html",
-                        "target": ""
-                }, {
-                        "name": "Moris JS",
-                        "page": "morisjs.html",
-                        "target": ""
-                }, {
-                        "name": "ECharts",
-                        "page": "echarts.html",
-                        "target": ""
-                }, {
-                        "name": "Other Charts",
-                        "page": "other_charts.html",
-                        "target": ""
-                }]
-        }, {
-                "name": "Layouts",
-                "icon": "fa-clone",
-                "childs": [{
-                        "name": "Fixed Sidebar",
-                        "page": "fixed_sidebar.html",
-                        "target": ""
-                }, {
-                        "name": "Fixed Footer",
-                        "page": "fixed_footer.html",
-                        "target": ""
-                }]
-        }],
-        "Live on": [{
-                "name": "Additional Pages",
-                "icon": "fa-bug",
-                "childs": [{
-                        "name": "E-commerce",
-                        "page": "e_commerce.html",
-                        "target": ""
-                }, {
-                        "name": "Projects",
-                        "page": "projects.html",
-                        "target": ""
-                }, {
-                        "name": "Project Detail",
-                        "page": "project_detail.html",
-                        "target": ""
-                }, {
-                        "name": "Contacts",
-                        "page": "contacts.html",
-                        "target": ""
-                }, {
-                        "name": "Profile",
-                        "page": "profile.html",
-                        "target": ""
-                }]
-        }, {
-                "name": "Extras",
-                "icon": "fa-windows",
-                "childs": [{
-                        "name": "403 Error",
-                        "page": "page_403.html",
-                        "target": ""
-                }, {
-                        "name": "404 Error",
-                        "page": "page_404.html",
-                        "target": ""
-                }, {
-                        "name": "500 Error",
-                        "page": "page_500.html",
-                        "target": ""
-                }, {
-                        "name": "Plain Page",
-                        "page": "plain_page.html",
-                        "target": ""
-                }, {
-                        "name": "Login Page",
-                        "page": "login.html",
-                        "target": "_top"
-                }, {
-                        "name": "Pricing Tables",
-                        "page": "pricing_tables.html",
-                        "target": ""
-                }]
-        }, {
-                "name": "Multilevel Menu",
-                "icon": "fa-sitemap",
-                "childs": [{
-                        "name": "Level One",
-                        "page": "",
-                        "target": ""
-                }, {
-                        "name": "Level One",
-                        "childs": [{
-                                "name": "Level Two",
-                                "page": "level2.html",
-                                "target": ""
-                        }, {
-                                "name": "Level Two",
-                                "page": "",
-                                "target": ""
-                        }, {
-                                "name": "Level Two",
-                                "page": "",
-                                "target": ""
-                        }],
-                        "label": {
-                                "type": "danger",
-                                "text": "12"
-                        }
-                }, {
-                        "name": "Level One",
-                        "page": "",
-                        "target": ""
-                }]
-        }, {
-                "name": "Langing Page",
-                "icon": "fa-laptop",
-                "page": "",
-                "target": "",
-                "label": {
-                        "type": "success",
-                        "text": "Comming Soon"
-                }
+            "name": "Dashboard3",
+            "page": "index3.html",
+            "target": ""
         }]
+    }, {
+        "name": "Forms",
+        "icon": "fa-edit",
+        "childs": [{
+            "name": "General Form",
+            "page": "form.html",
+            "target": ""
+        }, {
+            "name": "Advanced Components",
+            "page": "form_advanced.html",
+            "target": ""
+        }, {
+            "name": "Form Validation",
+            "page": "form_validation.html",
+            "target": ""
+        }, {
+            "name": "Form Wizard",
+            "page": "form_wizards.html",
+            "target": ""
+        }, {
+            "name": "Form Upload",
+            "page": "form_upload.html",
+            "target": ""
+        }, {
+            "name": "Form Buttons",
+            "page": "form_buttons.html",
+            "target": ""
+        }]
+    }, {
+        "name": "UI Elements",
+        "icon": "fa-desktop",
+        "childs": [{
+            "name": "General Elements",
+            "page": "general_elements.html",
+            "target": ""
+        }, {
+            "name": "Media Gallery",
+            "page": "media_gallery.html",
+            "target": ""
+        }, {
+            "name": "Typography",
+            "page": "typography.html",
+            "target": ""
+        }, {
+            "name": "Icons",
+            "page": "icons.html",
+            "target": ""
+        }, {
+            "name": "Glyphicons",
+            "page": "glyphicons.html",
+            "target": ""
+        }, {
+            "name": "Widgets",
+            "page": "widgets.html",
+            "target": ""
+        }, {
+            "name": "Invoice",
+            "page": "invoice.html",
+            "target": ""
+        }, {
+            "name": "Inbox",
+            "page": "inbox.html",
+            "target": ""
+        }, {
+            "name": "Calendar",
+            "page": "calendar.html",
+            "target": ""
+        }]
+    }, {
+        "name": "Tables",
+        "icon": "fa-table",
+        "childs": [{
+            "name": "Tables",
+            "page": "tables.html",
+            "target": ""
+        }, {
+            "name": "Table Dynamic",
+            "page": "tables_dynamic.html",
+            "target": ""
+        }]
+    }, {
+        "name": "Data Presentation",
+        "icon": "fa-bar-chart-o",
+        "childs": [{
+            "name": "Chart JS",
+            "page": "chartjs.html",
+            "target": ""
+        }, {
+            "name": "Chart JS2",
+            "page": "chartjs2.html",
+            "target": ""
+        }, {
+            "name": "Moris JS",
+            "page": "morisjs.html",
+            "target": ""
+        }, {
+            "name": "ECharts",
+            "page": "echarts.html",
+            "target": ""
+        }, {
+            "name": "Other Charts",
+            "page": "other_charts.html",
+            "target": ""
+        }]
+    }, {
+        "name": "Layouts",
+        "icon": "fa-clone",
+        "childs": [{
+            "name": "Fixed Sidebar",
+            "page": "fixed_sidebar.html",
+            "target": ""
+        }, {
+            "name": "Fixed Footer",
+            "page": "fixed_footer.html",
+            "target": ""
+        }]
+    }],
+    "Live on": [{
+        "name": "Additional Pages",
+        "icon": "fa-bug",
+        "childs": [{
+            "name": "E-commerce",
+            "page": "e_commerce.html",
+            "target": ""
+        }, {
+            "name": "Projects",
+            "page": "projects.html",
+            "target": ""
+        }, {
+            "name": "Project Detail",
+            "page": "project_detail.html",
+            "target": ""
+        }, {
+            "name": "Contacts",
+            "page": "contacts.html",
+            "target": ""
+        }, {
+            "name": "Profile",
+            "page": "profile.html",
+            "target": ""
+        }]
+    }, {
+        "name": "Extras",
+        "icon": "fa-windows",
+        "childs": [{
+            "name": "403 Error",
+            "page": "page_403.html",
+            "target": "_top"
+        }, {
+            "name": "404 Error",
+            "page": "page_404.html",
+            "target": "_top"
+        }, {
+            "name": "500 Error",
+            "page": "page_500.html",
+            "target": "_top"
+        }, {
+            "name": "Plain Page",
+            "page": "plain_page.html",
+            "target": ""
+        }, {
+            "name": "Login Page",
+            "page": "login.html",
+            "target": "_top"
+        }, {
+            "name": "Pricing Tables",
+            "page": "pricing_tables.html",
+            "target": ""
+        }]
+    }, {
+        "name": "Multilevel Menu",
+        "icon": "fa-sitemap",
+        "childs": [{
+            "name": "Level One",
+            "page": "",
+            "target": ""
+        }, {
+            "name": "Level One",
+            "childs": [{
+                "name": "Level Two",
+                "page": "level2.html",
+                "target": ""
+            }, {
+                "name": "Level Two",
+                "page": "",
+                "target": ""
+            }, {
+                "name": "Level Two",
+                "page": "",
+                "target": ""
+            }],
+            "label": {
+                "type": "danger",
+                "text": "12"
+            }
+        }, {
+            "name": "Level One",
+            "page": "",
+            "target": ""
+        }]
+    }, {
+        "name": "Langing Page",
+        "icon": "fa-laptop",
+        "page": "",
+        "target": "",
+        "label": {
+            "type": "success",
+            "text": "Comming Soon"
+        }
+    }]
 }
