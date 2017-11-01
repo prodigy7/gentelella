@@ -21,7 +21,6 @@ if ($.ajaxLoad) {
     }
 
     $(document).on('click', '.nav a[href!="#"]', function(e) {
-        //    alert("OK");
         if ($(this).parent().parent().hasClass('nav-tabs') || $(this).parent().parent().hasClass('nav-pills')) {
             e.preventDefault();
         } else if ($(this).attr('target') == '_top') {

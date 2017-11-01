@@ -147,7 +147,6 @@ if ($.ajaxLoad) {
     }
 
     $(document).on('click', '.nav a[href!="#"]', function(e) {
-        //    alert("OK");
         if ($(this).parent().parent().hasClass('nav-tabs') || $(this).parent().parent().hasClass('nav-pills')) {
             e.preventDefault();
         } else if ($(this).attr('target') == '_top') {
@@ -327,8 +326,12 @@ $(document).ready(function() {
     initProgressbar();
 });
 
+$(document).ajaxComplete(function() {
+    initProgressbar();
+});
+
 function initProgressbar() {
-    if ($(".progress .progress-bar").length > 0) {
+    if ($(".progress .progress-bar")[0]) {
         $('.progress .progress-bar').progressbar();
     }
 }

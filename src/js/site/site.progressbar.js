@@ -3,8 +3,12 @@ $(document).ready(function() {
     initProgressbar();
 });
 
+$(document).ajaxComplete(function() {
+    initProgressbar();
+});
+
 function initProgressbar() {
-    if ($(".progress .progress-bar").length > 0) {
+    if ($(".progress .progress-bar")[0]) {
         $('.progress .progress-bar').progressbar();
     }
 }

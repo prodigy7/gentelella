@@ -10,24 +10,12 @@
 
     <title>Gentelella Alela! | </title>
 
-    <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+
     <!-- iCheck -->
     <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 
-    <!-- bootstrap-progressbar -->
-    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
-    <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="../build/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -208,15 +196,40 @@
     <script src="../build/js/core.js"></script>
 
     <script>
-        loadStyle("../build/css/custom.min.css");
+        loadStyle("../node_modules/font-awesome/css/font-awesome.min.css");
+        loadStyle("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+        loadStyle("../node_modules/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css");
+        loadStyle("../node_modules/bootstrap-daterangepicker/daterangepicker.css");
+        loadStyle("../node_modules/jqvmap/dist/jqvmap.min.css");
+        loadStyle("../node_modules/datatables.net-bs/css/dataTables.bootstrap.css");
+        loadStyle("../node_modules/datatables.net-buttons-bs/css/buttons.bootstrap.min.css");
+        loadStyle("../node_modules/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css");
+        loadStyle("../node_modules/datatables.net-responsive-bs/css/responsive.bootstrap.min.css");
+        loadStyle("../node_modules/datatables.net-scroller-bs/css/scroller.bootstrap.min.css");
+        loadStyle("../node_modules/pnotify/dist/pnotify.css");
+        loadStyle("../node_modules/pnotify/dist/pnotify.buttons.css");
+        loadStyle("../node_modules/pnotify/dist/pnotify.nonblock.css");
+        loadStyle("../node_modules/normalize-css/normalize.css"); // XXX
+        loadStyle("../node_modules/ion-rangeslider/css/ion.rangeSlider.css");
+        loadStyle("../node_modules/ion-rangeslider/css/ion.rangeSlider.skinFlat.css");
+        loadStyle("../node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css");
+        loadStyle("../node_modules/cropper/dist/cropper.min.css");
+        loadStyle("../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css");
+        loadStyle("../node_modules/fullcalendar/dist/fullcalendar.css");
+        loadStyle("../node_modules/fullcalendar/dist/fullcalendar.print.css", "print");
+        loadStyle("../node_modules/dropzone/dist/min/dropzone.min.css");
+        loadStyle("../node_modules/google-code-prettify/bin/prettify.min.css");
+        loadStyle("../node_modules/select2/dist/css/select2.min.css");
+        loadStyle("../node_modules/switchery/standalone/switchery.css");
+        loadStyle("../node_modules/starrr/dist/starrr.css");
+        loadStyle("../build/css/custom.css");
 
         var requireJS = [];
-
         requireJS.push("../node_modules/moment/min/moment.min.js");
         requireJS.push("../node_modules/bootstrap-progressbar/bootstrap-progressbar.min.js");
         requireJS.push("../node_modules/bootstrap-daterangepicker/daterangepicker.js");
         requireJS.push("../node_modules/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js");
-        requireJS.push("../vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"); // XXXX
+        requireJS.push("../node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js");
         requireJS.push("../node_modules/icheck/icheck.min.js");
         requireJS.push("../node_modules/datatables.net/js/jquery.dataTables.js");
         requireJS.push("../node_modules/datatables.net-buttons/js/dataTables.buttons.min.js");
@@ -254,27 +267,27 @@
         requireJS.push("../node_modules/jquery-sparkline/jquery.sparkline.min.js");
         requireJS.push("../node_modules/raphael/raphael.min.js");
         requireJS.push("../node_modules/morris.js/morris.min.js");
-        requireJS.push("../node_modules/gauge.js/dist/gauge.min.js");
+        requireJS.push("../vendors/gauge.js/dist/gauge.js");
         requireJS.push("../node_modules/echarts/dist/echarts.min.js");
         requireJS.push("../node_modules/echarts/map/js/world.js");
         requireJS.push("../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js");
         requireJS.push("../node_modules/ion-rangeslider/js/ion.rangeSlider.min.js");
-        requireJS.push("../node_modules/jquery-inputmask/index.js"); // XXXX
         requireJS.push("../node_modules/jquery-knob/dist/jquery.knob.min.js");
         requireJS.push("../node_modules/cropper/dist/cropper.min.js");
         requireJS.push("../node_modules/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js");
         requireJS.push("../node_modules/jquery-hotkeys/jquery-hotkeys.js");
         requireJS.push("../node_modules/google-code-prettify/src/prettify.js");
-        requireJS.push("../vendors/jquery.tagsinput/src/jquery.tagsinput.js"); // XXX
+        requireJS.push("../vendors/jquery.tagsinput/src/jquery.tagsinput.js");
         requireJS.push("../vendors/switchery/dist/switchery.min.js");
         requireJS.push("../node_modules/select2/dist/js/select2.full.min.js");
-        requireJS.push("../node_modules/parsleyjs/dist/parsley.min.js");
+        requireJS.push("../vendors/validator/validator.js");
+        requireJS.push("../vendors/parsleyjs/dist/parsley.min.js");
         requireJS.push("../node_modules/autosize/dist/autosize.min.js");
         requireJS.push("../node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js");
-        requireJS.push("../vendors/starrr/dist/starrr.js");
+        requireJS.push("../node_modules/starrr/dist/starrr.js");
         requireJS.push("../node_modules/dropzone/dist/min/dropzone.min.js");
-        requireJS.push("../node_modules/validator/validator.js");
         requireJS.push("../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js");
+        requireJS.push("../node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js");
 
         requireJS.push("../build/js/site.js");
 

@@ -20,7 +20,9 @@ function loadJS(jsFiles) {
 /* ================================================================================
    Function for load CSS files asynchronously in ajax mode
    -------------------------------------------------------------------------------- */
-function loadStyle(cssFile, end, callback) {
+function loadStyle(cssFile, end, callback, media) {
+
+    var media = media !== undefined ? media : '';
 
     var cssArray = {};
 
@@ -34,6 +36,9 @@ function loadStyle(cssFile, end, callback) {
             styleLink.setAttribute('rel', 'stylesheet');
             styleLink.setAttribute('type', 'text/css');
             styleLink.setAttribute('href', cssFile);
+            if (media != '') {
+                styleLink.setAttribute('media', media);
+            }
 
             styleLink.onload = callback;
             head.appendChild(styleLink);
@@ -47,6 +52,9 @@ function loadStyle(cssFile, end, callback) {
             styleLink.setAttribute('rel', 'stylesheet');
             styleLink.setAttribute('type', 'text/css');
             styleLink.setAttribute('href', cssFile);
+            if (media != '') {
+                styleLink.setAttribute('media', media);
+            }
 
             styleLink.onload = callback;
             head.insertBefore(styleLink, style);

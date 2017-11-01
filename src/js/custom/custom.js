@@ -423,6 +423,7 @@ function init_gauge() {
         generateGradient: true
     };
 
+
     if ($('#chart_gauge_01').length) {
         var chart_gauge_01_elem = document.getElementById('chart_gauge_01');
         var chart_gauge_01 = new Gauge(chart_gauge_01_elem).setOptions(chart_gauge_settings);
@@ -872,12 +873,14 @@ function init_parsley() {
     });
 
     var validateFront = function() {
-        if (true === $('#demo-form').parsley().isValid()) {
-            $('.bs-callout-info').removeClass('hidden');
-            $('.bs-callout-warning').addClass('hidden');
-        } else {
-            $('.bs-callout-info').addClass('hidden');
-            $('.bs-callout-warning').removeClass('hidden');
+        if ($('#demo-form')[0]) {
+            if (true === $('#demo-form').parsley().isValid()) {
+                $('.bs-callout-info').removeClass('hidden');
+                $('.bs-callout-warning').addClass('hidden');
+            } else {
+                $('.bs-callout-info').addClass('hidden');
+                $('.bs-callout-warning').removeClass('hidden');
+            }
         }
     };
 
@@ -891,12 +894,14 @@ function init_parsley() {
     });
 
     var validateFront = function() {
-        if (true === $('#demo-form2').parsley().isValid()) {
-            $('.bs-callout-info').removeClass('hidden');
-            $('.bs-callout-warning').addClass('hidden');
-        } else {
-            $('.bs-callout-info').addClass('hidden');
-            $('.bs-callout-warning').removeClass('hidden');
+        if ($('#demo-form2')[0]) {
+            if (true === $('#demo-form2').parsley().isValid()) {
+                $('.bs-callout-info').removeClass('hidden');
+                $('.bs-callout-warning').addClass('hidden');
+            } else {
+                $('.bs-callout-info').addClass('hidden');
+                $('.bs-callout-warning').removeClass('hidden');
+            }
         }
     };
 
@@ -1098,8 +1103,10 @@ function init_cropper() {
     }
 
     // Download
-    if (typeof $download[0].download === 'undefined') {
-        $download.addClass('disabled');
+    if ($download[0]) {
+        if (typeof $download[0].download === 'undefined') {
+            $download.addClass('disabled');
+        }
     }
 
     // Options
@@ -1766,13 +1773,13 @@ function init_PNotify() {
     new PNotify({
         title: "PNotify",
         type: "info",
-        text: "Welcome. Try hovering over me. You can click things behind me, because I'm non-blocking.",
-        nonblock: {
+        text: "Hello World!",
+        /*nonblock: {
             nonblock: true
-        },
+        },*/
         addclass: 'dark',
         styling: 'bootstrap3',
-        hide: false,
+        hide: true,
         before_close: function(PNotify) {
             PNotify.update({
                 title: PNotify.options.title + " - Enjoy your Stay",
@@ -5042,11 +5049,10 @@ function init_echarts() {
 $(document).ready(function() {
     init_sparklines();
     init_flot_chart();
-    //init_sidebar();
     init_wysiwyg();
     init_InputMask();
     init_JQVmap();
-    //init_cropper();
+    init_cropper();
     init_knob();
     init_IonRangeSlider();
     init_ColorPicker();
