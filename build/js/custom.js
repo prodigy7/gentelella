@@ -2084,8 +2084,9 @@ function init_charts() {
 
     // Line chart
     if ($('#lineChart').length) {
-
+        console.log($('#lineChart').length)
         var ctx = document.getElementById("lineChart");
+        console.log(document.getElementById("lineChart"))
         var lineChart = new Chart(ctx, {
             type: 'line',
             data: {
