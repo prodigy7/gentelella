@@ -78,6 +78,23 @@ gulp.task('sass-core-minify', function() {
     return compileSASSCore('core.min.css', { style: 'compressed' });
 });
 
+// Site
+var compileSASSSite = function(filename, options) {
+    return sass('src/scss/site/*.scss', options)
+        .pipe(autoprefixer('last 2 versions', '> 5%'))
+        .pipe(concat(filename))
+        .pipe(gulp.dest(DEST + '/css'))
+        .pipe(browserSync.stream());
+};
+
+gulp.task('sass-site', function() {
+    return compileSASSSite('site.css', {});
+});
+
+gulp.task('sass-site-minify', function() {
+    return compileSASSSite('site.min.css', { style: 'compressed' });
+});
+
 // Custom
 var compileSASSCustom = function(filename, options) {
     return sass('src/scss/custom/*.scss', options)
@@ -114,7 +131,7 @@ gulp.task('watch', function() {
     // Watch .js files
     gulp.watch('src/js/**/*.js', ['scripts-core', 'scripts-site', 'scripts-custom']);
     // Watch .scss files
-    gulp.watch('src/scss/**/*.scss', ['sass-core', 'sass-core-minify', 'sass-custom', 'sass-custom-minify']);
+    gulp.watch('src/scss/**/*.scss', ['sass-core', 'sass-core-minify', 'sass-site', 'sass-site-minify', 'sass-custom', 'sass-custom-minify']);
 });
 
 // Default Task

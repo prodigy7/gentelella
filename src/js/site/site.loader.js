@@ -17,10 +17,10 @@ if ($.ajaxLoad) {
     if (url != '') {
         setUpPage(url);
     } else {
-        setUpPage($.defaultPage);
+        //setUpPage($.defaultPage);
     }
 
-    $(document).on('click', 'a', function(ev) {
+    $(document).on('click', 'a', function (ev) {
         var link = $(this).attr('href');
         var linkTarget = $(this).attr('target') !== undefined ? $(this).attr('target') : '';
 
@@ -52,6 +52,9 @@ function setUpPage(page, pageTarget) {
         default:
             switch (page) {
                 case '':
+                    return (false)
+                    break;
+
                 case '#':
                     return (false)
                     break;
@@ -63,9 +66,14 @@ function setUpPage(page, pageTarget) {
                         window.location = page;
                         return (false)
                     } else {
-                        loadPage(page);
+                        if (page.match(/^\#/gi)) {
+                            //window.location = page;
+                            return (false)
+                        } else {
+                            loadPage(page);
+                            return (true)
+                        }
                     }
-                    return (true)
                     break;
             }
             break;
@@ -85,23 +93,29 @@ function loadPage(url) {
         dataType: 'html',
         cache: false,
         async: false,
-        beforeSend: function() {
-            $.mainContent.css({ opacity: 0 });
+        beforeSend: function () {
+            $.mainContent.css({
+                opacity: 0
+            });
         },
-        success: function() {
+        success: function () {
             //Pace.restart();
-            $('html, body').animate({ scrollTop: 0 }, 0);
-            $.mainContent.load($.pagesDirectory + url, null, function(responseText) {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 0);
+            $.mainContent.load($.pagesDirectory + url, null, function (responseText) {
                 window.location.hash = url;
                 loadJS(requireJS);
-                $(window).ready(function() {
+                $(window).ready(function () {
                     NProgress.done();
                     sidebar.setActive();
                 });
-            }).delay(0).animate({ opacity: 1 }, 0);
+            }).delay(0).animate({
+                opacity: 1
+            }, 0);
 
         },
-        error: function() {
+        error: function () {
             window.location.href = $.page404;
         }
 
